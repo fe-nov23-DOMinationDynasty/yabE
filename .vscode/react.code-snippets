@@ -1,0 +1,47 @@
+{
+	"hook": {
+		"scope": "typescript",
+		"prefix": "hook",
+		"body": [
+			"export function ${TM_FILENAME_BASE}() {",
+			"  ${1}",
+			"  return {}",
+			"}",
+		],
+		"description": "create a new typescript component",
+	},
+	"tafce": {
+		"scope": "typescriptreact",
+		"prefix": "tafce",
+		"body": [
+			"export function ${TM_FILENAME_BASE}() {",
+			"  return <div>${1}${TM_FILENAME_BASE}</div>",
+			"}",
+		],
+		"description": "create a new typescript component",
+	},
+	"imrs": {
+		"scope": "javascriptreact, typescriptreact",
+		"prefix": "imrs",
+		"body": ["import styles from './${1}${TM_FILENAME_BASE}.module.scss';"],
+		"description": "add import styles module",
+	},
+	"rafce": {
+		"scope": "javascriptreact",
+		"prefix": "rafce",
+		"body": [
+			"const ${TM_FILENAME_BASE} = () => {",
+			"  return <div>${1}${TM_FILENAME_BASE}</div>",
+			"};",
+			"",
+			"export default ${TM_FILENAME_BASE};",
+		],
+		"description": "create simple component",
+	},
+	"usea": {
+		"scope": "javascriptreact, typescriptreact",
+		"prefix": "usea",
+		"body": ["const {${1}} = useAuth()"],
+		"description": "call useAuth hook",
+	},
+}
