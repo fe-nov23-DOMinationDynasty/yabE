@@ -1,3 +1,4 @@
+// пока что ето пример конфига кабинета юзера
 class DASHBOARD {
 	private root = '/i'
 

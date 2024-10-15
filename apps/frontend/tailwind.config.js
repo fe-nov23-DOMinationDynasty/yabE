@@ -11,6 +11,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			boxShadow: {
+        'custom-drop': '0px 4px 32px 0px rgba(0, 0, 0, 0.25)',
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

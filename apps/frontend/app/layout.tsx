@@ -1,3 +1,4 @@
+import { Header } from '@/components/shared'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE_NAME } from '../constants/seo.constants'
@@ -29,6 +30,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+				<Header />
 				<Providers>{children}</Providers>
 			</body>
 		</html>
