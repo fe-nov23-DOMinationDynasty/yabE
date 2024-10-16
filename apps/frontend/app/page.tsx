@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import styles from './page.module.css'
 
@@ -15,6 +15,66 @@ export default function Home() {
 					priority
 				/>
 				<ol>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>{' '}
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>{' '}
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>{' '}
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>{' '}
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>{' '}
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
+					<li>
+						Get started by editing <code>app/page.tsx</code>
+					</li>
 					<li>
 						Get started by editing <code>app/page.tsx</code>
 					</li>
