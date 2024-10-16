@@ -15,9 +15,12 @@ interface Props {
 export const Header: React.FC<Props> = ({ className }) => {
 	return (
 		<header
-			className={cn('my-3 fixed inset-x-0 z-50 bg-background', className)}
+			className={cn(
+				'sticky inset-x-0 top-3 z-50 my-5 bg-background',
+				className
+			)}
 		>
-			<Container className='grid grid-cols-[1fr_auto_1fr] items-center justify-between py-3 px-4 shadow-custom-drop rounded-full gap-2'>
+			<Container className='grid grid-cols-[1fr_auto_1fr] items-center justify-between gap-2 rounded-full px-4 py-3 shadow-custom-drop'>
 				<div className='flex items-center gap-8 justify-self-start'>
 					<Input placeholder='Search' />
 
