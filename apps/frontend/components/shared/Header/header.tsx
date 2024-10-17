@@ -5,6 +5,7 @@ import React from 'react'
 import { Button } from '../../ui/button'
 import { Input } from '../../ui/input'
 import { Container } from '../container'
+import CartDrawer from './cartDrawer'
 import NotificationDropdown from './notificationDropdown'
 import { DropdownMenuDemo } from './profileDropdown'
 
@@ -44,6 +45,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 						<Icon icon='mage:message-round' />
 					</Button>
 					<NotificationDropdown />
+					<CartDrawer />
 					<DropdownMenuDemo />
 				</div>
 
