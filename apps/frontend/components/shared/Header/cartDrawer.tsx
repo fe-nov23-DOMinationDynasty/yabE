@@ -43,7 +43,7 @@ export default function CartDrawer() {
 					className='relative'
 				>
 					<ShoppingCart />
-					<span className='absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground'>
+					<span className='absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground'>
 						{quantity}
 					</span>
 				</Button>
@@ -51,7 +51,7 @@ export default function CartDrawer() {
 
 			<SheetContent
 				side='right'
-				className='w-[400px] sm:w-[540px]'
+				className='my-3 mr-4 h-auto w-[400px] rounded-3xl sm:w-[540px]'
 			>
 				<SheetHeader>
 					<SheetTitle>Your Cart</SheetTitle>
