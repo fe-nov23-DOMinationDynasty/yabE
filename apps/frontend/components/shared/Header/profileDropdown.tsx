@@ -41,6 +41,7 @@ export function DropdownMenuDemo() {
 			</DropdownMenuTrigger>
 			<DropdownMenuContent
 				align='end'
+				sideOffset={16}
 				className='w-56'
 			>
 				<DropdownMenuLabel>My Account</DropdownMenuLabel>

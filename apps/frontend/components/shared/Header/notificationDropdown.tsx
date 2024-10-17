@@ -20,7 +20,9 @@ export default function NotificationDropdown() {
 
 			<DropdownMenuContent
 				align='end'
-				className='w-80 max-h-[400px] overflow-auto right-0'
+				sideOffset={16}
+				className='right-0 max-h-[400px] w-80 overflow-auto'
+				forceMount
 			>
 				<div className='grid gap-4 p-4'>
 					<h4 className='font-medium leading-none'>Notifications</h4>

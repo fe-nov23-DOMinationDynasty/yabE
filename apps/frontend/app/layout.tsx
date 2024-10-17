@@ -1,4 +1,5 @@
 import { Header } from '@/components/shared'
+import { Toaster } from '@/components/ui/sonner'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE_NAME } from '../constants/seo.constants'
@@ -32,6 +33,7 @@ export default function RootLayout({
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				<Header />
 				<Providers>{children}</Providers>
+				<Toaster />
 			</body>
 		</html>
 	)
