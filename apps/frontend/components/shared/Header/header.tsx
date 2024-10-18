@@ -18,25 +18,31 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
 	const { scrollY } = useViewportScroll()
-	const [isScrolled, setIsScrolled] = useState(false)
+	const [isOnTop, setIsOnTop] = useState(false)
 
-	// Update isScrolled state based on scroll position
+	// Update isOnTop state based on scroll position
 	useMotionValueEvent(scrollY, 'change', latest => {
-		setIsScrolled(latest > 50) // Adjust the threshold to your needs
+		setIsOnTop(latest > 50)
 	})
 
-	console.log('Page scroll: ', scrollY)
-
 	return (
-		<motion.header
-			className={cn('sticky inset-x-0 top-3 z-50 my-3', className)}
-		>
-			<Container className=''>
+		<header className={cn('sticky inset-x-0 top-3 z-50 my-3', className)}>
+			<Container>
 				<motion.div
 					className={cn(
 						'grid grid-cols-[1fr,auto,1fr] items-center justify-between gap-2 bg-background px-4 py-3',
-						{ 'rounded-full shadow-custom-drop': isScrolled }
+						{ 'rounded-full shadow-custom-drop': isOnTop }
 					)}
+					initial={{ boxShadow: 'none', borderRadius: '0px' }}
+					animate={
+						isOnTop
+							? {
+									boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+									borderRadius: '48px'
+								}
+							: { boxShadow: 'none', borderRadius: '0px' }
+					}
+					transition={{ duration: 0.3, ease: 'easeInOut' }}
 				>
 					<div className='flex items-center gap-8 justify-self-start'>
 						<Input placeholder='Search' />
@@ -76,6 +82,6 @@ export const Header: React.FC<Props> = ({ className }) => {
 					<Icon icon='solar:user-linear' /> */}
 				</motion.div>
 			</Container>
-		</motion.header>
+		</header>
 	)
 }
