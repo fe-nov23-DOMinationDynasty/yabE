@@ -7,6 +7,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import { motion } from 'framer-motion'
 import { Bell } from 'lucide-react'
 
 // This would typically come from your app's state management
@@ -38,46 +39,56 @@ export default function NotificationDropdown() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button
-					variant='ghost'
-					size='icon'
-					className='relative'
+				<motion.div
+					whileTap={{ scale: 0.8 }}
+					whileInView={{ scale: 1 }}
 				>
-					<Bell />
-					{unreadCount > 0 && (
-						<span className='absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground'>
-							{unreadCount}
-						</span>
-					)}
-				</Button>
+					<Button
+						variant='ghost'
+						size='icon'
+						className='relative'
+					>
+						<Bell />
+						{unreadCount > 0 && (
+							<span className='absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground'>
+								{unreadCount}
+							</span>
+						)}
+					</Button>
+				</motion.div>
 			</DropdownMenuTrigger>
 
 			<DropdownMenuContent
 				className='w-80'
 				sideOffset={16}
 			>
-				<DropdownMenuLabel>Notifications</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				{notifications.map(notification => (
-					<DropdownMenuItem
-						key={notification.id}
-						className='flex flex-col items-start px-4 py-2'
-					>
-						<div className='flex w-full justify-between'>
-							<span
-								className={`font-medium ${notification.read ? 'text-muted-foreground' : ''}`}
-							>
-								{notification.message}
+				<motion.div
+					initial={{ x: 50 }}
+					animate={{ x: 0 }}
+				>
+					<DropdownMenuLabel>Notifications</DropdownMenuLabel>
+					<DropdownMenuSeparator />
+					{notifications.map(notification => (
+						<DropdownMenuItem
+							key={notification.id}
+							className='flex flex-col items-start px-4 py-2'
+						>
+							<div className='flex w-full justify-between'>
+								<span
+									className={`font-medium ${notification.read ? 'text-muted-foreground' : ''}`}
+								>
+									{notification.message}
+								</span>
+								{!notification.read && (
+									<span className='h-2 w-2 rounded-full bg-primary'></span>
+								)}
+							</div>
+							<span className='text-xs text-muted-foreground'>
+								{notification.time}
 							</span>
-							{!notification.read && (
-								<span className='h-2 w-2 rounded-full bg-primary'></span>
-							)}
-						</div>
-						<span className='text-xs text-muted-foreground'>
-							{notification.time}
-						</span>
-					</DropdownMenuItem>
-				))}
+						</DropdownMenuItem>
+					))}
+				</motion.div>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

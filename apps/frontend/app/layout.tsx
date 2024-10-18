@@ -1,5 +1,6 @@
 import { Header } from '@/components/shared'
 import { Toaster } from '@/components/ui/sonner'
+import { MotionConfig } from 'framer-motion'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE_NAME } from '../constants/seo.constants'
@@ -31,8 +32,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<Header />
-				<Providers>{children}</Providers>
+				<MotionConfig transition={{ duration: 0.5, ease: 'easeInOut' }}>
+					<Header />
+					<Providers>{children}</Providers>
+				</MotionConfig>
 				<Toaster />
 			</body>
 		</html>

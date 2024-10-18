@@ -1,5 +1,6 @@
 'use client'
 
+import { animVariants } from '@/constants/animVariants.constants'
 import { cn } from '@/lib/utils'
 import { Icon } from '@iconify/react'
 import { motion, useMotionValueEvent, useViewportScroll } from 'framer-motion'
@@ -29,20 +30,9 @@ export const Header: React.FC<Props> = ({ className }) => {
 		<header className={cn('sticky inset-x-0 top-3 z-50 my-3', className)}>
 			<Container>
 				<motion.div
-					className={cn(
-						'grid grid-cols-[1fr,auto,1fr] items-center justify-between gap-2 bg-background px-4 py-3',
-						{ 'rounded-full shadow-custom-drop': isOnTop }
-					)}
-					initial={{ boxShadow: 'none', borderRadius: '0px' }}
-					animate={
-						isOnTop
-							? {
-									boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-									borderRadius: '48px'
-								}
-							: { boxShadow: 'none', borderRadius: '0px' }
-					}
-					transition={{ duration: 0.3, ease: 'easeInOut' }}
+					className='grid grid-cols-[1fr,auto,1fr] items-center justify-between gap-2 bg-background px-4 py-3'
+					variants={animVariants}
+					animate={isOnTop ? 'scrolledHeader' : 'initialHeader'}
 				>
 					<div className='flex items-center gap-8 justify-self-start'>
 						<Input placeholder='Search' />
@@ -77,9 +67,9 @@ export const Header: React.FC<Props> = ({ className }) => {
 					</div>
 
 					{/* <Icon icon='lets-icons:favorite-light' />
-					<Icon icon='mage:message-round' />
-					<Icon icon='solar:bell-linear' />
-					<Icon icon='solar:user-linear' /> */}
+						<Icon icon='mage:message-round' />
+						<Icon icon='solar:bell-linear' />
+						<Icon icon='solar:user-linear' /> */}
 				</motion.div>
 			</Container>
 		</header>
