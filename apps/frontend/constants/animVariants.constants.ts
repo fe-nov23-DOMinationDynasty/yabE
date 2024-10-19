@@ -8,12 +8,35 @@ export const animVariants: Variants = {
 		borderRadius: '0px'
 	},
 	scrolledHeader: {
-		boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+		boxShadow: '0px 4px 32px 0px rgba(0, 0, 0, 0.25)',
 		borderRadius: '48px'
-	}
+	},
 	// #endregion
 
-	// #region NAME animation
-
+	// #region Dropdown animation
+	openDropdown: {
+		clipPath: 'inset(0% 0% 0% 0% round 10px)',
+		transition: {
+			type: 'spring',
+			bounce: 0,
+			duration: 0.7,
+			delayChildren: 0.3,
+			staggerChildren: 0.05
+		}
+	},
+	closedDropdown: {
+		clipPath: 'inset(10% 50% 90% 50% round 10px)',
+		transition: {
+			type: 'spring',
+			bounce: 0,
+			duration: 0.3
+		}
+	},
+	openItemDropdown: {
+		opacity: 1,
+		y: 0,
+		transition: { type: 'spring', stiffness: 300, damping: 24 }
+	},
+	closedItemDropdown: { opacity: 0, y: 20, transition: { duration: 0.2 } }
 	// #endregion
 }

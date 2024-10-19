@@ -9,9 +9,10 @@ import React, { useState } from 'react'
 import { Button } from '../../ui/button'
 import { Input } from '../../ui/input'
 import { Container } from '../container'
+import AnimatedDropdown from './animatedDropdown'
 import CartDrawer from './cartDrawer'
-import NotificationDropdown from './notificationDropdown'
-import { DropdownMenuDemo } from './profileDropdown'
+import NotificationDropdown from './notification-dropdown'
+import { ProfileDropdown } from './profile-dropdown'
 
 interface Props {
 	className?: string
@@ -61,9 +62,10 @@ export const Header: React.FC<Props> = ({ className }) => {
 						>
 							<Icon icon='mage:message-round' />
 						</Button>
+						<AnimatedDropdown />
 						<NotificationDropdown />
 						<CartDrawer />
-						<DropdownMenuDemo />
+						<ProfileDropdown />
 					</div>
 
 					{/* <Icon icon='lets-icons:favorite-light' />
