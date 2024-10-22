@@ -72,12 +72,12 @@ export default function NotificationDropdown() {
 								open: animVariants.openDropdown as Variant,
 								closed: animVariants.closedDropdown as Variant
 							}}
-							className='z-50 rounded-md border bg-secondary p-1 text-popover-foreground shadow-md'
+							className='motion.ul z-50 rounded-md border bg-secondary p-1 text-popover-foreground shadow-md'
 							style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
 						>
 							<DropdownMenuLabel>Notifications</DropdownMenuLabel>
 							{notifications.map(notification => (
-								<DropdownMenuItem className='flex flex-col items-start rounded-md border p-1 px-4 py-2 shadow-md hover:bg-primary/10'>
+								<DropdownMenuItem className='flex flex-col items-start rounded-md border p-1 px-4 py-2 shadow-md'>
 									<div className='flex w-full justify-between'>
 										<span
 											className={`font-medium ${notification.read ? 'text-muted-foreground' : ''}`}

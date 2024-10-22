@@ -2,18 +2,17 @@ import { Header } from '@/components/shared'
 import { Toaster } from '@/components/ui/sonner'
 import { MotionConfig } from 'framer-motion'
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Unbounded } from 'next/font/google'
 import { SITE_NAME } from '../constants/seo.constants'
 import './globals.css'
 import { Providers } from './providers'
 
-const geistSans = localFont({
-	src: './fonts/GeistVF.woff',
-	variable: '--font-geist-sans'
-})
-const geistMono = localFont({
-	src: './fonts/GeistMonoVF.woff',
-	variable: '--font-geist-mono'
+const unbounded = Unbounded({
+	subsets: ['cyrillic', 'latin'],
+	weight: ['300', '400', '500', '700', '900'],
+	display: 'swap',
+	variable: '--font-unbounded',
+	style: ['normal']
 })
 
 export const metadata: Metadata = {
@@ -31,7 +30,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+			<body className={unbounded.className}>
 				<MotionConfig transition={{ duration: 0.5, ease: 'easeInOut' }}>
 					<Header />
 					<Providers>{children}</Providers>

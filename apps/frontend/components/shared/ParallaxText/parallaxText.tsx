@@ -76,7 +76,7 @@ export const ParallaxText = ({
 			)}
 		>
 			<motion.div
-				className='flex whitespace-nowrap text-9xl font-bold uppercase'
+				className='flex whitespace-nowrap text-9xl font-black uppercase tracking-tight'
 				style={{ x }}
 			>
 				<span className='mr-20'>{children} </span>

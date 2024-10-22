@@ -99,26 +99,23 @@ const DropdownMenuItem = React.forwardRef<
 		inset?: boolean
 	}
 >(({ className, inset, ...props }, ref) => (
-	<DropdownMenuPrimitive.Item
-		ref={ref}
-		asChild
-		className={cn(
-			'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-			inset && 'pl-8',
-			className
-		)}
-		{...props}
+	<motion.div
+		variants={{
+			open: animVariants.openItemDropdown as Variant,
+			closed: animVariants.closedItemDropdown as Variant
+		}}
+		// whileHover={{ background: '#000000' }}
 	>
-		<motion.div
-			variants={{
-				open: animVariants.openItemDropdown as Variant,
-				closed: animVariants.closedItemDropdown as Variant
-			}}
-			tabIndex={-1}
-		>
-			{props.children}
-		</motion.div>
-	</DropdownMenuPrimitive.Item>
+		<DropdownMenuPrimitive.Item
+			ref={ref}
+			className={cn(
+				'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-primary/10 focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+				inset && 'pl-8',
+				className
+			)}
+			{...props}
+		/>
+	</motion.div>
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
 
