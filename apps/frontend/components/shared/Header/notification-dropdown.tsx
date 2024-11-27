@@ -1,13 +1,12 @@
 import { Button } from '@/components/ui/button'
 import {
 	DropdownMenu,
+	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { animVariants } from '@/constants/animVariants.constants'
-import { DropdownMenuContent } from '@radix-ui/react-dropdown-menu'
-import { AnimatePresence, motion, Variant } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { Bell } from 'lucide-react'
 import { useState } from 'react'
 
@@ -36,7 +35,6 @@ const notifications = [
 
 export default function NotificationDropdown() {
 	const [isOpen, setIsOpen] = useState(false)
-
 	const unreadCount = notifications.filter(n => !n.read).length
 
 	return (
@@ -58,42 +56,37 @@ export default function NotificationDropdown() {
 					)}
 				</Button>
 			</DropdownMenuTrigger>
+
 			<AnimatePresence>
 				{isOpen && (
 					<DropdownMenuContent
-						forceMount
+						align='end'
 						className='w-80'
+						forceMount
 					>
-						<motion.ul
-							initial='closed'
-							animate='open'
-							exit='closed'
-							variants={{
-								open: animVariants.openDropdown as Variant,
-								closed: animVariants.closedDropdown as Variant
-							}}
-							className='motion.ul z-50 rounded-md border bg-secondary p-1 text-popover-foreground shadow-md'
-							style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
-						>
-							<DropdownMenuLabel>Notifications</DropdownMenuLabel>
-							{notifications.map(notification => (
-								<DropdownMenuItem className='flex flex-col items-start rounded-md border p-1 px-4 py-2 shadow-md'>
-									<div className='flex w-full justify-between'>
-										<span
-											className={`font-medium ${notification.read ? 'text-muted-foreground' : ''}`}
-										>
-											{notification.message}
-										</span>
-										{!notification.read && (
-											<span className='h-2 w-2 rounded-full bg-primary'></span>
-										)}
-									</div>
-									<span className='text-xs text-muted-foreground'>
-										{notification.time}
+						<DropdownMenuLabel>Notifications</DropdownMenuLabel>
+						{notifications.map(notification => (
+							<DropdownMenuItem
+								key={notification.id}
+								className='flex flex-col items-start rounded-md border p-1 px-4 py-2 shadow-md'
+							>
+								<div className='flex w-full justify-between'>
+									<span
+										className={`font-medium ${
+											notification.read ? 'text-muted-foreground' : ''
+										}`}
+									>
+										{notification.message}
 									</span>
-								</DropdownMenuItem>
-							))}
-						</motion.ul>
+									{!notification.read && (
+										<span className='h-2 w-2 rounded-full bg-primary'></span>
+									)}
+								</div>
+								<span className='text-xs text-muted-foreground'>
+									{notification.time}
+								</span>
+							</DropdownMenuItem>
+						))}
 					</DropdownMenuContent>
 				)}
 			</AnimatePresence>

@@ -51,7 +51,6 @@ export function ProfileDropdown() {
 				{isOpen && (
 					<DropdownMenuContent
 						align='end'
-						sideOffset={16}
 						className='w-56'
 						forceMount
 					>

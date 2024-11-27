@@ -33,7 +33,14 @@ export default function RootLayout({
 			<body className={unbounded.className}>
 				<MotionConfig transition={{ duration: 0.5, ease: 'easeInOut' }}>
 					<Header />
-					<Providers>{children}</Providers>
+					<Providers>
+						{children}
+						<Toaster
+							theme='dark'
+							position='bottom-right'
+							duration={1500}
+						/>
+					</Providers>
 				</MotionConfig>
 				<Toaster />
 			</body>
